@@ -5,6 +5,10 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
+import static ru.viktkurl.rep1.MainActivity.INTENT_LASTNAME;
+import static ru.viktkurl.rep1.MainActivity.INTENT_NAME;
+import static ru.viktkurl.rep1.MainActivity.INTENT_SEX;
+
 public class SecondActivity extends AppCompatActivity {
 
     @Override
@@ -14,10 +18,16 @@ public class SecondActivity extends AppCompatActivity {
 
         Intent intentFromMain = getIntent();
 
-        TextView firstName = (TextView) findViewById(R.id.firstName);
-        TextView lastName = (TextView) findViewById(R.id.lastName);
+        TextView firstNameText = (TextView) findViewById(R.id.firstName);
+        TextView lastNameText = (TextView) findViewById(R.id.lastName);
+        TextView sexText = (TextView) findViewById(R.id.sex);
 
-        String name = intentFromMain.getStringExtra("");
-        String surname = intentFromMain.getStringExtra("");
+        String name = intentFromMain.getStringExtra(INTENT_NAME);
+        String lastName = intentFromMain.getStringExtra(INTENT_LASTNAME);
+        String sex = intentFromMain.getStringExtra(INTENT_SEX);
+
+        firstNameText.setText(name);
+        lastNameText.setText(lastName);
+        sexText.setText(sex);
     }
 }
